@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css" />
+</head>
+
+<body>
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand">AskPupkin</a>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                <button class="btn bg-success text-white" type="submit">ASK!</button>
+            </form>
+            <div class="d-flex justify-content-between gap-3">
+                <div class="log_reg">
+                    <a href="/log_in.html">log in</a>
+                    <a href="/register.html">register</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="container-fluid container-lg mt-3">
+
+        <div class="row">
+            <div class="col-md-8 col-sm-12">
+                <div class="row row-cols-2 row-cols-lg-5 g-2" style="margin-bottom: 20px; margin-top: 10px;">
+                    <div class="col-2">
+                        <div class="p-1">Login</div>
+                    </div>
+                    <div class="col-10" style="max-width: 300px;">
+                        <input class="p-1 rounded"></input>
+                    </div>
+                </div>
+                <div class="row row-cols-2 row-cols-lg-5 g-2" style="margin-bottom: 20px;">
+                    <div class="col-2">
+                        <div class="p-1">Email</div>
+                    </div>
+                    <div class="col-10" style="max-width: 300px;">
+                        <input class="p-1 rounded"></input>
+                    </div>
+                </div>
+                <div class="row row-cols-2 row-cols-lg-5 g-2" style="margin-bottom: 20px;">
+                    <div class="col-2">
+                        <div class="p-1">NickName</div>
+                    </div>
+                    <div class="col-10" style="max-width: 300px;">
+                        <input class="p-1 rounded">
+                        </input>
+                    </div>
+                </div>
+                <div class="row row-cols-2 row-cols-lg-5 g-2" style="margin-bottom: 20px;">
+                    <div class="col-2">
+                        <div class="p-1">Upload avatar</div>
+                    </div>
+                    <div class="col-10 rounded" style="max-width: 150px;">
+                        <div class="d-flex">
+                            <img src="img.jpg" width="150" height="150" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-cols-3 row-cols-lg-5 g-2" style="margin-bottom: 20px;">
+                    <div class="col-2">
+                        <div class="p-1"></div>
+                    </div>
+                    <div class="col-3 rounded">
+                        <input class="p-1" style="max-width: 150px;"></input>
+                    </div>
+                    <div class="col-2" style="max-width: 150px; margin-left: 10px;">
+                        <button type="button" class="btn btn-outline-dark">Choose</button>
+                    </div>
+                </div>
+                <div class="row row-cols-2 row-cols-lg-5 g-2" style="margin-bottom: 20px;">
+                    <div class="col-2">
+                        <div class="p-1"></div>
+                    </div>
+                    <div class="col-10" style="max-width: 150px;">
+                        <button type="button" class="btn btn-outline-dark">Save</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <h2>Popular Tags</h2>
+                <div class="row">
+                    <div class="col">
+                        <span class="badge text-bg-primary">Primary</span>
+                        <span class="badge text-bg-secondary">Secondary</span>
+                        <span class="badge text-bg-success">Success</span>
+                        <span class="badge text-bg-danger">Danger</span>
+                        <span class="badge text-bg-warning">Warning</span>
+                        <span class="badge text-bg-info">Info</span>
+                        <span class="badge text-bg-light">Light</span>
+                        <span class="badge text-bg-dark">Dark</span>
+                    </div>
+                </div>
+                <h3 class="mt-5">Best Members</h3>
+                <div>
+                    <a href="/member.html" class="d-block">Mr. Freeman</a><a href="/member.html" class="d-block">Mr.
+                        Freeman</a><a href="/member.html" class="d-block">Mr. Freeman</a><a href="/member.html"
+                        class="d-block">Mr. Freeman</a><a href="/member.html" class="d-block">Mr. Freeman</a>
+                </div>
+            </div>
+    </main>
+
+
+    <footer class="fixed-bottom p-3 bg-light">
+        <div class="container">
+            <span class="text-muted"></span>
+        </div>
+    </footer>
+    <script src="../static/js/bootstrap.js"></script>
+</body>
+
+</html>
