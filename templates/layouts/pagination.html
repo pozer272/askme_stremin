@@ -1,0 +1,51 @@
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    {% if tag %} {% if page_obj.has_previous %}
+    <li class="page-item">
+      <a
+        class="page-link"
+        href="{% url page_obj.view_name tag_id=tag.id %}?page={{ page_obj.previous_page_number }}"
+        >Previous</a
+      >
+    </li>
+    {% endif %} {% for num in page_obj.paginator.page_range %}
+    <li class="page-item {% if page_obj.number == num %}active{% endif %}">
+      <a
+        class="page-link"
+        href="{% url page_obj.view_name tag_id=tag.id %}?page={{ num }}"
+        >{{ num }}</a
+      >
+    </li>
+    {% endfor %} {% if page_obj.has_next %}
+    <li class="page-item">
+      <a
+        class="page-link"
+        href="{% url page_obj.view_name tag_id=tag.id %}?page={{ page_obj.next_page_number }}"
+        >Next</a
+      >
+    </li>
+    {% endif %} {% else %} {% if page_obj.has_previous %}
+    <li class="page-item">
+      <a
+        class="page-link"
+        href="{% url page_obj.view_name %}?page={{ page_obj.previous_page_number }}"
+        >Previous</a
+      >
+    </li>
+    {% endif %} {% for num in page_obj.paginator.page_range %}
+    <li class="page-item {% if page_obj.number == num %}active{% endif %}">
+      <a class="page-link" href="{% url page_obj.view_name %}?page={{ num }}"
+        >{{ num }}</a
+      >
+    </li>
+    {% endfor %} {% if page_obj.has_next %}
+    <li class="page-item">
+      <a
+        class="page-link"
+        href="{% url page_obj.view_name %}?page={{ page_obj.next_page_number }}"
+        >Next</a
+      >
+    </li>
+    {% endif %} {% endif %}
+  </ul>
+</nav>

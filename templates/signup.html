@@ -1,0 +1,68 @@
+{% extends "layouts/base.html" %} {% block content %}
+<div class="d-flex gap-3 align-items-center">
+    <h1>Registration</h1>
+</div>
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<div class="row">
+    <div class="col-md-8 col-sm-12">
+        <div class="row row-cols-2 row-cols-lg-5 g-2" style="margin-bottom: 20px; margin-top: 10px;">
+            <div class="col-md-2 col-sm-12">
+                <div class="p-1">Login</div>
+            </div>
+            <div class="col-md-10 col-sm-12 rounded" style="min-width: 250px;">
+                <input class="p-1" placeholder="Enter your Login here..."></input>
+            </div>
+        </div>
+        <div class="row row-cols-2 row-cols-lg-5 g-2" style="margin-bottom: 20px; margin-top: 10px;">
+            <div class="col-md-2 col-sm-12">
+                <div class="p-1">Email</div>
+            </div>
+            <div class="col-md-10 col-sm-12 rounded" style="min-width: 250px;">
+                <input class="p-1" placeholder="Enter your Email here..."></input>
+            </div>
+        </div>
+        <div class="row row-cols-2 row-cols-lg-5 g-2" style="margin-bottom: 20px; margin-top: 10px;">
+            <div class="col-md-2 col-sm-12">
+                <div class="p-1">NickName</div>
+            </div>
+            <div class="col-md-10 col-sm-12 rounded" style="min-width: 250px;">
+                <input class="p-1" placeholder="NickName"></input>
+            </div>
+        </div>
+        <div class="row row-cols-2 row-cols-lg-5 g-2" style="margin-bottom: 20px; margin-top: 10px;">
+            <div class="col-md-2 col-sm-12">
+                <div class="p-1">Password</div>
+            </div>
+            <div class="col-md-10 col-sm-12 rounded" style="min-width: 250px;">
+                <input class="p-1" placeholder="*******"></input>
+            </div>
+        </div>
+        <div class="row row-cols-2 row-cols-lg-5 g-2" style="margin-bottom: 20px; margin-top: 10px;">
+            <div class="col-md-2 col-sm-12">
+                <div class="p-1">Repeat Password</div>
+            </div>
+            <div class="col-md-10 col-sm-12 rounded" style="min-width: 250px;">
+                <input class="p-1" placeholder="*******"></input>
+            </div>
+        </div>
+        <div class="row row-cols-3 row-cols-lg-5 g-2" style="margin-bottom: 20px;">
+            <div class="col-md-2 col-sm-12">
+                <div class="p-1"></div>
+            </div>
+            <div class="col-md-10 col-sm-12 rounded">
+                <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg"
+                    style="min-width: 250px;"></input>
+            </div>
+        </div>
+        <div class="row row-cols-2 row-cols-lg-5 g-2" style="margin-bottom: 20px;">
+            <div class="col-md-2 col-sm-12">
+            </div>
+            <div class="col-md-10 col-sm-12" style="max-width: 150px;">
+                <button type="button" class="btn btn-outline-dark">Register!</button>
+            </div>
+        </div>
+    </div>
+{%endblock%}

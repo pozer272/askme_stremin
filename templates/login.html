@@ -1,0 +1,42 @@
+{% extends "layouts/base.html" %} {% block content %}
+<div class="d-flex gap-3 align-items-center">
+    <h1>Login</h1>
+</div>
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<div class="row">
+    <div class="col-md-8 col-sm-12">
+        <div class="row row-cols-2 row-cols-lg-5 g-2" style="margin-bottom: 20px; margin-top: 10px;">
+            <div class="col-md-2 col-sm-12">
+                <div class="p-1">Login</div>
+            </div>
+            <input class="col-md-10 col-sm-12 border border-black rounded" placeholder="Enter your Login here..." style="min-width: 250px;">
+            </input>
+        </div>
+        <div class="row row-cols-2 row-cols-lg-5 g-2" style="margin-bottom: 20px; margin-top: 10px;">
+            <div class="col-md-2 col-sm-12">
+                <div class="p-1">Password</div>
+            </div>
+            <input class="col-md-10 col-sm-12 border border-black rounded" placeholder="***********"
+                style="min-width: 250px;">
+            </input>
+        </div>
+        <div class="row row-cols-2 row-cols-lg-5 g-2" style="margin-bottom: 20px;">
+            <div class="col-md-2 col-sm-12">
+            </div>
+            <div class="col-md-10 col-sm-12" style="max-width: 150px;">
+                <button type="button" class="btn btn-outline-dark">Log in!</button>
+            </div>
+        </div>
+        <div class="row row-cols-2 row-cols-lg-5 g-2" style="margin-bottom: 20px; margin-top: 10px;">
+            <div class="col-md-2 col-sm-12">
+                <div class="p-1"></div>
+            </div>
+            <div class="col-md-10 col-sm-12" style="min-width: 250px;">
+                <a href='{% url "signup" %}' class="text-reset text-decoration-none">create new account</a>
+            </div>
+        </div>
+    </div>
+    {%endblock%}

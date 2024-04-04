@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css" />
+  </head>
+
+  <body>
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+        <a href='{% url "index" %}' class="text-reset text-decoration-none">AskStremin</a>
+        <form class="d-flex" role="search">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button class="btn bg-success text-white" type="submit">ASK!</button>
+        </form>
+        <div class="d-flex justify-content-between gap-3">
+          <div class="border">
+            <img src=" {% static 'jpg/cot.jpg' %}" width="50" height="50" />
+          </div>
+          <div class="justify-content-between">
+            <a href='{% url "settings" %}' class="text-reset text-decoration-none">Dr.Pepper</a>
+            <div class="log_reg">
+              <a href='{% url "login" %}' class="text-reset text-decoration-none">log in</a>
+              <a href='{% url "signup" %}' class="text-reset text-decoration-none">register</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container-fluid container-lg mt-3">
+      <div class="row">
+        {%block content%} {%endblock%}
+        <div class="col-md-4 col-sm-12">
+          <h2>Popular Tags</h2>
+          <div class="row">
+            <div class="col">
+              {% for tag_item in tags %}
+                <a href='{% url "tag" tag_item.id %}' class="badge text-reset text-decoration-none" style="background-color: {{ tag_item.color }};">{{ tag_item.name_tag }}</a>
+              {% endfor %}
+          </div>
+
+          <h3 class="mt-5">Best Members</h3>
+          <div>
+            <a href="/member.html" class="d-block">Mr. Freeman</a
+            ><a href="/member.html" class="d-block">Mr. Freeman</a
+            ><a href="/member.html" class="d-block">Mr. Freeman</a
+            ><a href="/member.html" class="d-block">Mr. Freeman</a
+            ><a href="/member.html" class="d-block">Mr. Freeman</a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="fixed-bottom p-2 bg-light">
+      <div class="container">
+        <span class="text-muted"></span>
+      </div>
+    </footer>
+    <script src="../static/js/bootstrap.js"></script>
+  </body>
+</html>
