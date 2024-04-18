@@ -1,0 +1,17 @@
+{% load static %}
+{% load mathfilters %}
+    <div class= "row">
+        <div class = "col">
+            <button type="button" class="btn">
+                <h5><i class="bi-hand-thumbs-up"></i></h5>
+            </button>
+        </div>
+        <div class = "col">
+            <button type="button" class="btn">
+                <h5><i class="bi-hand-thumbs-down"></i></h5>
+            </button>
+        </div>
+        <div class="sum_votes">
+            {{ question.rating_likes|add:question.rating_dislikes }} votes
+        </div>
+    </div> 

@@ -3,14 +3,10 @@
   <div class="row g-0">
     <div class="col-3 p-2">
       <div class="border w-100 mb-3" style="height: 100px">
-        <img
-          src="../static/jpg/cot.jpg"
-          class="rounded-start w-100 h-100"
-          alt="..."
-        />
+        <img src="{{ question.image.url }}" class="rounded-start w-100 h-100" alt="Question image">
       </div>
       <div class="input-group flex-nowrap">
-        <input type="number" value="5" class="form-control" />
+          {% include 'components/rating.html' %}
       </div>
     </div>
     <div class="col">
@@ -18,7 +14,7 @@
         <h5 class="card-title">
           <a
             href='{% url "question" question.id %}'
-            class="text-reset text-decoration-none"
+            class="link-opacity-75-hover link-dark text-decoration-none"
             >{{question.title}}</a
           >
         </h5>
@@ -26,17 +22,15 @@
         <div class="row">
           <a
             href='{% url "question" question.id %}'
-            class="col-4 text-reset text-decoration-none"
-            >answers(3)</a
-          >
+            class="col-4 link-opacity-75-hover link-dark text-decoration-none"
+            >answers({{num_answers}})</a>
           <div class="col-8">
             <span>Tags:</span>
-            {% for tag_item in tags %}
+            {% for tag in tags %}
             <a
-              href='{% url "tag" tag_item.id %}'
-              class="badge text-reset text-decoration-none"
-              style="background-color: {{ tag_item.color }};"
-              >{{ tag_item.name_tag }}</a
+              href='{% url "tag" tag.id %}'
+              class="badge bg-secondary text-white link-opacity-75-hover link-dark text-decoration-none"
+              >{{ tag.name }}</a
             >
             {% endfor %}
           </div>

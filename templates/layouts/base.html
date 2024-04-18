@@ -5,31 +5,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
-    <link rel="stylesheet" href="../static/css/bootstrap.css" />
+    <link rel="stylesheet" href="{% static 'css' %}/bootstrap.css" />
+    <link rel="stylesheet" href="{% static 'icons' %}/bootstrap-icons.css" />
   </head>
 
   <body>
     <nav class="navbar bg-body-tertiary">
       <div class="container-fluid">
-        <a href='{% url "index" %}' class="text-reset text-decoration-none">AskStremin</a>
+        <a href='{% url "index" %}' class="fs-1 link-opacity-75-hover link-dark text-decoration-none">AskmeStremin</a>
         <form class="d-flex" role="search">
+          <button class="btn bg-success me-2 text-white" type="submit">+ASK!</button>
           <input
             class="form-control me-2"
             type="search"
             placeholder="Search"
             aria-label="Search"
           />
-          <button class="btn bg-success text-white" type="submit">ASK!</button>
+          <button class="btn btn-outline-success" type="submit"><h6><i class="bi-search"></i></h6></button>
         </form>
         <div class="d-flex justify-content-between gap-3">
           <div class="border">
             <img src=" {% static 'jpg/cot.jpg' %}" width="50" height="50" />
           </div>
           <div class="justify-content-between">
-            <a href='{% url "settings" %}' class="text-reset text-decoration-none">Dr.Pepper</a>
+            <a href='{% url "settings" %}' class="link-opacity-75-hover link-dark text-decoration-none"><i class="bi bi-person-fill"></i> Dr.Pepper</a>
             <div class="log_reg">
-              <a href='{% url "login" %}' class="text-reset text-decoration-none">log in</a>
-              <a href='{% url "signup" %}' class="text-reset text-decoration-none">register</a>
+              <a href='{% url "login" %}' class="link-opacity-75-hover link-dark text-decoration-none"><i class="bi bi-box-arrow-in-right"></i> log in</a>
+              <a href='{% url "signup" %}' class="link-opacity-75-hover link-dark text-decoration-none">register</a>
             </div>
           </div>
         </div>
@@ -43,8 +45,8 @@
           <h2>Popular Tags</h2>
           <div class="row">
             <div class="col">
-              {% for tag_item in tags %}
-                <a href='{% url "tag" tag_item.id %}' class="badge text-reset text-decoration-none" style="background-color: {{ tag_item.color }};">{{ tag_item.name_tag }}</a>
+              {% for tag in tags %}
+                <a href='{% url "tag" tag.id %}' class="badge bg-secondary text-white link-opacity-75-hover link-dark text-decoration-none">{{ tag.name}}</a>
               {% endfor %}
           </div>
 
@@ -64,6 +66,6 @@
         <span class="text-muted"></span>
       </div>
     </footer>
-    <script src="../static/js/bootstrap.js"></script>
+    <script src="{% static 'js' %}/bootstrap.js"></script>
   </body>
 </html>
