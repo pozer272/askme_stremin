@@ -145,7 +145,7 @@ class Answer(models.Model):
 
 class myUser(models.Model):
     django_user = models.OneToOneField(User, on_delete=models.PROTECT)
-    avatar = models.ImageField(blank=True, null=True)
+    avatar = models.ImageField(upload_to="", default="")
     rating_likes = models.BigIntegerField(default=0)
     rating_dislikes = models.BigIntegerField(default=0)
 

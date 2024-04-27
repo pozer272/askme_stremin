@@ -1,8 +1,14 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from app.models import Question, Answer, Tag
 from django.db.models import Count
-
+from django.views.decorators.csrf import requires_csrf_token
+from django.contrib.auth import authenticate, logout
+from django.urls import reverse
+from app.forms import LoginForm, SignUpForm
+from django.views.decorators.http import require_http_methods
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login as auth_login
 
 # def paginator_func(request, qs):
 #     try:
@@ -86,14 +92,49 @@ def tag(request, tag_id):
     )
 
 
+@require_http_methods(["GET", "POST"])
 def login(request):
-    return render(request, "login.html", {"tags": Tag.objects.all()[:10]})
+    print(request.POST)
+    continue_url = request.GET.get("continue", reverse("index"))
+    if request.method == "GET":
+        login_form = LoginForm()
+    if request.method == "POST":
+        login_form = LoginForm(data=request.POST)
+        if login_form.is_valid():
+            user = authenticate(request, **login_form.cleaned_data)
+            if user:
+                auth_login(request, user)
+                return redirect(continue_url)
+    return render(
+        request,
+        "login.html",
+        context={"tags": Tag.objects.all()[:10], "form": login_form},
+    )
 
 
+def logout_view(request):
+    logout(request)
+    return redirect(reverse("login"))
+
+
+@require_http_methods(["GET", "POST"])
 def signup(request):
-    return render(request, "signup.html", {"tags": Tag.objects.all()[:10]})
+    if request.method == "GET":
+        user_form = SignUpForm()
+    if request.method == "POST":
+        user_form = SignUpForm(request.POST)
+        if user_form.is_valid():
+            user = user_form.save()
+            if user:
+                return redirect(reverse("index"))
+            else:
+                user_form.add_error(field=None, error="User saving error")
+    return render(
+        request, "signup.html", {"tags": Tag.objects.all()[:10], "form": user_form}
+    )
 
 
+@login_required
 def settings(request):
     return render(request, "settings.html", {"tags": Tag.objects.all()[:10]})
 
