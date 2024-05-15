@@ -26,12 +26,8 @@
             >answers({{num_answers}})</a>
           <div class="col-8">
             <span>Tags:</span>
-            {% for tag in tags %}
-            <a
-              href='{% url "tag" tag.id %}'
-              class="badge bg-secondary text-white link-opacity-75-hover link-dark text-decoration-none"
-              >{{ tag.name }}</a
-            >
+            {% for tag in question.tags.all %}
+              <a href='{% url "tag" tag.id %}' class="badge bg-secondary text-white link-opacity-75-hover link-dark text-decoration-none">{{ tag.name }}</a>
             {% endfor %}
           </div>
         </div>

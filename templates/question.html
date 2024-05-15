@@ -1,15 +1,15 @@
-{% extends "layouts/base.html" %} {% load static %} {% block content %}
+{% extends "layouts/base.html" %} {% load static %} {% load bootstrap4 %} {% block content %}
 <div class="col-8">
   {% include "components/questions.html" %}
   <h2>Answers:</h2>
   {% for answer in answers %} {% include "components/answer.html" %} {% endfor %}
   {% include "components/pagination.html" with page_obj=answers %}
-  <div class="rounded d-flex" style="min-height: 100px">
-    <textarea class="text d-flex w-100" placeholder="Enter your answer here...">
-    </textarea>
-  </div>
-  <button type="button" class="btn btn-secondary" style="margin-top: 20px">
-    Answer
-  </button>
+  {% if request.user.is_authenticated %}
+  <form method="post" action="">
+  {% csrf_token %}
+  {% bootstrap_form answer_form %}
+  <button type="submit" class="btn btn-secondary" style="margin-top: 20px">Answer</button>
+  </form>
+  {%endif%}
 </div>
 {%endblock%} 

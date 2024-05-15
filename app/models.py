@@ -94,7 +94,7 @@ class AnswerManager(models.Manager):
                     )
                 ),
             )
-            .order_by("-likes_count")
+            .order_by("-created_at")
         )
 
 
@@ -113,9 +113,11 @@ class Question(models.Model):
         ("draft", "Draft"),
         ("published", "Published"),
     )
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="draft")
-    title = models.CharField(max_length=255, default="Title")
-    text = models.TextField(max_length=2000, default="Text")
+    status = models.CharField(
+        max_length=20, choices=STATUS_CHOICES, default="published"
+    )
+    title = models.CharField(max_length=255)
+    text = models.TextField(max_length=2000)
     image = models.ImageField(upload_to="questions/", default="")
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag)

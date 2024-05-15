@@ -3,9 +3,9 @@
     <h1>Registration</h1>
 </div>
 <div class="col-md-8 col-sm-12">
-    <form method="post" action="">
+    <form method="post" action="" enctype="multipart/form-data">
         {% csrf_token %}
-        {% bootstrap_form form %}
+        {% bootstrap_form signup_form %}
         <div class="mt-3">
             <button type="submit" class="btn btn-outline-dark">Register!</button>
             <a href='{% url "login" %}' class="link-opacity-75-hover link-dark text-decoration-none ms-5">login</a>
